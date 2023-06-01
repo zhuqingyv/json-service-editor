@@ -72,12 +72,12 @@ class JsonServiceEditor extends JsonServiceEditorCore {
     super(options);
   };
 
-  getValue = (callback: AnyHandle, error: AnyHandle) => {
+  getValue = (callback?: AnyHandle, error?: AnyHandle) => {
     const { getFetchOption } = this;
     return this.fetch({ ...getFetchOption, callback, error })
   };
 
-  setValue = (body: any, callback: AnyHandle, error: AnyHandle) => {
+  setValue = (body: any, callback?: AnyHandle, error?: AnyHandle) => {
     const { setFetchOption } = this;
     return this.fetch({ ...setFetchOption, body, callback, error })
   };
