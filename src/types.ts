@@ -15,6 +15,6 @@ export type FetchOptionType = {
   url: string;
   method: Methods;
   body?: any;
-  callback: AnyHandle;
-  error: AnyHandle;
+  callback?: AnyHandle;
+  error?: AnyHandle;
 };
