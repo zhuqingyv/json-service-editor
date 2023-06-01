@@ -1,8 +1,9 @@
 {
   "name": "json-service-editor",
-  "version": "1.0.0",
+  "version": "1.0.0-alpha",
   "description": "用于启动一个json读写的配套程序。",
   "main": "index.js",
+  "bin": "bin.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
