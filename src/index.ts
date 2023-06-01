@@ -25,7 +25,7 @@ class JsonServiceEditorCore {
     };
   };
 
-  fetch = ({ url, method, body, callback, error }: FetchOptionType) => {
+  fetch = ({ url, method, body, callback = () => null, error = () => null }: FetchOptionType) => {
     return fetch(url, {
       method,
       headers: {
@@ -33,8 +33,14 @@ class JsonServiceEditorCore {
       },
       body
     })
-      .then((res) => callback(res))
-      .catch((errorMessage) => error(errorMessage))
+      .then((res) => {
+        callback(res);
+        return res
+      })
+      .catch((errorMessage) => {
+        error(errorMessage);
+        return errorMessage;
+      })
   };
 
   get getFetchOption() {
@@ -61,12 +67,12 @@ class JsonServiceEditor extends JsonServiceEditorCore {
     super(options);
   };
 
-  getValue = ({ callback = () => null, error = () => null } : { callback: AnyHandle, error: AnyHandle }) => {
+  getValue = (callback: AnyHandle, error: AnyHandle) => {
     const { getFetchOption } = this;
     return this.fetch({ ...getFetchOption, callback, error })
   };
 
-  setValue = ({ body, callback, error } : { callback: AnyHandle, error: AnyHandle, body: any }) => {
+  setValue = (body: any, callback: AnyHandle, error: AnyHandle) => {
     const { setFetchOption } = this;
     return this.fetch({ ...setFetchOption, body, callback, error })
   };
