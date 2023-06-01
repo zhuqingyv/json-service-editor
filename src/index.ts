@@ -50,7 +50,7 @@ class JsonServiceEditorCore {
     const { options } = this;
     const { baseUrl, fileName } = options;
     return {
-      url: `${baseUrl}/get/${fileName}`,
+      url: `${baseUrl}/set/${fileName}`,
       method: Methods['POST']
     };
   };
