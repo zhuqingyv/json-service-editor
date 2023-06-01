@@ -1,6 +1,6 @@
 # json-service-editor
 
-用于启动一个json读写的配套程序。
+用于启动一个json读写的配套程序。比如服务端还在开发中，但是你仍需要一个可以模拟本地读写的程序，那么 **json-service-editor** 是一个很好的选择，
 
 ## install
 
@@ -49,7 +49,9 @@ fetch('http://localhost:3000/set/demo.json', {
 })
 ```
 
-## Simpler API
+## Simpler Browser API (Base on [FetchAPI](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API))
+
+如果你不想直接通过 fetchAPI 实现读写，你可以直接在需要json的地方
 
 First:
 ``` npm install json-service-editor ```
@@ -65,4 +67,11 @@ const serviceSDK = new JsonServiceEditorCore({
 });
 
 const { getValue, setValue } = serviceSDK;
+
 ```
+
+## TODO
+
+* Test
+* Website
+* BenchMark
