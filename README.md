@@ -68,6 +68,11 @@ const serviceSDK = new JsonServiceEditorCore({
 
 const { getValue, setValue } = serviceSDK;
 
+getValue(
+  () => {},
+  () => {}
+)
+
 ```
 
 ## TODO

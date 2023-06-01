@@ -33,9 +33,14 @@ class JsonServiceEditorCore {
       },
       body
     })
-      .then((res) => {
-        callback(res);
-        return res
+      .then(async(res) => {
+        try {
+          const json = await res.json();
+          callback(json);
+          return json
+        } catch {
+          return ''
+        };
       })
       .catch((errorMessage) => {
         error(errorMessage);
