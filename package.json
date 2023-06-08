@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "bin": "bin.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "examples": "cd examples && npm install && json-service-editor && npm run dev"
   },
   "repository": {
     "type": "git",
