@@ -8,7 +8,7 @@ const { getValue, setValue } = new JsonServiceEditorCore({
   fileName: 'demo.json'
 });
 
-fetch('http://localhost:3110/login?name=班纳', {
+fetch('http://localhost:3110/login?name=班纳&password=000000', {
   method: 'GET',
   // headers: {
   //   'Content-Type': 'application/json',

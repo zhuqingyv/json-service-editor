@@ -8,8 +8,16 @@ module.exports = () => {
       // 登录
       '/login': {
         methods: 'get',
-        handle: ({ json, params, res }) => {
-          res.json(200, { message: '通过!' })
+        handle: ({ json, params, res, req }) => {
+          const { query } = req;
+          const { user } = json;
+          const { name, password } = query;
+          if (user[name].password === password) {
+            return res.json(200, { message: '通过!' })
+          };
+
+          return res.json(403, { message: `name: ${name} is not defined~!` })
+          
         }
       },
 

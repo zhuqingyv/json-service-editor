@@ -33,6 +33,8 @@ json-service-editor
 
 ## interface
 
+这里是最基本的json两个接口，get 和 set。
+
 Get JSonValue
 
 ``` typescript

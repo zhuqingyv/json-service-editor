@@ -21,11 +21,25 @@ class ServiceCreator {
     if (!app) return;
     Object.keys(serviceObject).forEach((serviceKey) => {
       const { methods, handle } = serviceObject[serviceKey];
-      app[methods](serviceKey, (req, res) => {
-        const { body:params } = req;
-        const json = this.readJson(this.url);
-        handle({ req, res, params, json });
-      });
+      switch(methods) {
+        case 'post': {
+          app.post(serviceKey, (req, res) => {
+            const { body:params } = req;
+            const json = this.readJson(this.url);
+            handle({ req, res, params, json });
+          });
+          break;
+        }
+        case 'get':
+        default: {
+          app.get(serviceKey, (req, res) => {
+            const { query:params } = req;
+            const json = this.readJson(this.url);
+            handle({ req, res, params, json });
+          });
+          break; 
+        }
+      }
     });
   };
 };
