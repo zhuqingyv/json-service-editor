@@ -6,13 +6,13 @@
 * 支持js配置文件 - 1.0.11以及以后
 * 支持自定义接口配置 - 1.0.11以及以后
 
-## install
+## Install
 
 ``` shell
 npm i json-service-editor -g
 ```
 
-## use
+## Quick Start
 
 create ``` .json-service.json ```
 
@@ -31,7 +31,7 @@ json-service-editor
 
 现在你已经启动了一个简单的json读写服务。
 
-## interface
+## Interface
 
 这里是最基本的json两个接口，get 和 set。
 
