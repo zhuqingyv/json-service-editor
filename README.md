@@ -121,7 +121,9 @@ const serviceSDK = new JsonServiceEditorCore({
 const { getValue, setValue } = serviceSDK;
 
 getValue(
+  // success callback
   () => {},
+  // fail callback
   () => {}
 )
 
