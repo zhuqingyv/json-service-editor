@@ -1,6 +1,6 @@
 {
   "name": "json-service-editor",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "用于启动一个json读写的配套程序。",
   "main": "src/index.ts",
   "bin": "bin.js",
