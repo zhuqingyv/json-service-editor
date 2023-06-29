@@ -48,11 +48,6 @@ const app = express();
 
 app.use(cors());
 
-app.all('*', () => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "*");
-});
-
 const { create } = new ServiceCreator(app, url, port);
 
 app.use(express.static('./', []));
