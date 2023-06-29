@@ -4,6 +4,7 @@
   "description": "用于启动一个json读写的配套程序。",
   "main": "src/index.ts",
   "bin": "bin.js",
+  "type": "commonjs",
   "scripts": {
     "examples": "cd examples && npm install && json-service-editor && npm run dev",
     "dev": "cd examples && npm run dev"
