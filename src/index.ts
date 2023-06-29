@@ -31,6 +31,7 @@ class JsonServiceEditorCore {
       headers: {
         'Content-Type': 'application/json',
       },
+      mode: 'cors',
       body
     })
       .then(async(res) => {
