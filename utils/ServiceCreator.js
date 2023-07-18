@@ -16,9 +16,19 @@ class ServiceCreator {
     };
   };
 
+  writeJson = (value) => {
+    fs.writeFileSync(this.url, JSON.stringify(value));
+    return this.readJson(this.url, '{}');
+  };
+
   create = (serviceObject) => {
     const { app } = this;
     if (!app) return;
+
+    const updateJson = (value) => {
+      return this.writeJson(value);
+    };
+  
     Object.keys(serviceObject).forEach((serviceKey) => {
       const { methods, handle } = serviceObject[serviceKey];
       switch(methods) {
@@ -26,7 +36,7 @@ class ServiceCreator {
           app.post(serviceKey, (req, res) => {
             const { body:params } = req;
             const json = this.readJson(this.url);
-            handle({ req, res, params, json });
+            handle({ req, res, params, json, updateJson });
           });
           break;
         }
@@ -35,7 +45,7 @@ class ServiceCreator {
           app.get(serviceKey, (req, res) => {
             const { query:params } = req;
             const json = this.readJson(this.url);
-            handle({ req, res, params, json });
+            handle({ req, res, params, json, updateJson });
           });
           break; 
         }
